@@ -1,28 +1,71 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div id="head">
+      <div class="content">
+        <router-link to="/">狂野飙车9游戏资讯</router-link>
+        <div class="nav">
+          <router-link to="/index">首页</router-link>
+          <router-link to="/map">地图</router-link>
+          <router-link to="/car">车辆</router-link>
+          <router-link to="/manage">管理</router-link>
+          <!-- <router-link to="/about">About</router-link> -->
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <router-view />
+    </div>
   </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<style lang="scss" scoped>
+#head {
+  z-index: 1000;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 10px;
+  background-color: rgb(55, 9, 97);
+  color: #fff;
+  box-shadow: 0 6px 6px rgba($color: #000000, $alpha: 0.16);
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  .content {
+    width: 940px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+
+    justify-content: space-between;
+
+    a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .nav {
+      a {
+        padding: 10px 20px;
+        text-align: center;
+        display: inline-block;
+        // width: 80px;
+        &.router-link-active {
+          // font-weight: bold;
+          background-color: #fff;
+          color: rgb(55, 9, 97);
+        }
+      }
+    }
   }
 }
-</script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.container {
+  // display: flex;
+  margin: 20px auto;
+  margin-top: 80px;
+  width: 940px;
+  user-select: none;
+  background-color: #fff;
 }
 </style>
