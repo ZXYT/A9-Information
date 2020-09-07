@@ -43,7 +43,6 @@ export default {
   data() {
     return {
       isShow: false,
-      // list: [],
       item: null,
       type: "",
     };
@@ -64,12 +63,6 @@ export default {
     },
   },
 
-  watch: {
-    data() {
-      console.log(data)
-    }
-  },
-
   methods: {
     del(index) {
       const flag = window.confirm("是否确认删除");
@@ -78,12 +71,8 @@ export default {
         this.$emit("del", index);
       }
     },
+    
     search(sw) {
-      // const { searchWorld } = this;
-      // if (searchWorld) {
-      //   this.$emit("search", searchWorld);
-      //   this.searchWorld = "";
-      // }
       console.log(sw);
     },
   },

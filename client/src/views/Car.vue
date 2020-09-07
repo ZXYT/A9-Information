@@ -95,21 +95,6 @@ export default {
         this.carList = this.cars;
       }
     },
-    // getRank(num) {
-    //   if (num == 1) {
-    //     return "D";
-    //   } else if (num == 2) {
-    //     return "C";
-    //   } else if (num == 3) {
-    //     return "B";
-    //   } else if (num == 4) {
-    //     return "A";
-    //   } else if (num == 4) {
-    //     return "S";
-    //   } else {
-    //     return "";
-    //   }
-    // },
   },
 };
 </script>

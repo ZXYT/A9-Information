@@ -1,8 +1,8 @@
 <template>
   <div class="map">
-    <div class="head">
+    <!-- <div class="head">
       <my-search @search="search"></my-search>
-    </div>
+    </div> -->
     <div class="body">
       <div class="nav">
         <ul>
@@ -37,7 +37,6 @@
 
 <script>
 import api from "@/api";
-import mySearch from "@/components/search.vue";
 
 export default {
   data() {
@@ -54,10 +53,6 @@ export default {
     };
   },
 
-  components: {
-    mySearch,
-  },
-
   created() {
     this.getPlaces()
     this.getMaps();
@@ -72,7 +67,7 @@ export default {
         this.currentPlace = res[0];
       });
     },
-    
+
     getMaps(placeId, name) {
       const { page, limit } = this;
       api.getMaps({ page, limit, placeId, name }).then((res) => {
@@ -97,17 +92,6 @@ export default {
 
     changeMap(map) {
       this.currentMap = map;
-    },
-
-    search(sw) {
-      if (sw) {
-        console.log(
-          sw,
-          this.mapList.filter((item) => item.name.includes(sw))
-        );
-        // const item =
-        //  this.changeMap()
-      }
     },
   },
 
