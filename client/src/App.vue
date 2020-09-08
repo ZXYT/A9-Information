@@ -3,20 +3,44 @@
     <div id="head">
       <div class="content">
         <router-link to="/">狂野飙车9游戏资讯</router-link>
-        <div class="nav">
-          <router-link to="/index">首页</router-link>
-          <router-link to="/map">地图</router-link>
-          <router-link to="/car">车辆</router-link>
-          <router-link to="/manage">管理</router-link>
-          <!-- <router-link to="/about">About</router-link> -->
+        <div>
+          <span class="nav">
+            <router-link to="/index">首页</router-link>
+            <router-link to="/map">地图</router-link>
+            <router-link to="/car">车辆</router-link>
+            <router-link to="/manage">管理</router-link>
+          </span>
+          <span class="login">
+            <a v-if="data" @click="loginOut">
+              {{data.loginId}}
+              <i :class="{'iconfont': true, 'icon-loginOut': true}"></i>
+            </a>
+            <router-link v-else to="/Login">登录</router-link>
+          </span>
         </div>
       </div>
     </div>
+
     <div class="container">
       <router-view />
     </div>
   </div>
 </template>
+
+<script>
+import { mapState } from "vuex";
+
+export default {
+  computed: mapState("loginUser", ["data", "isLoading"]),
+
+  methods: {
+    loginOut() {
+      this.$store.dispatch("loginUser/loginOut");
+      this.$router.push("/");
+    },
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 #head {
@@ -42,6 +66,7 @@
       text-decoration: none;
       color: #fff;
       font-weight: bold;
+      cursor: pointer;
     }
 
     .nav {
@@ -56,6 +81,12 @@
           color: rgb(55, 9, 97);
         }
       }
+    }
+
+    .login {
+      display: inline-block;
+      text-align: center;
+      width: 72px;
     }
   }
 }

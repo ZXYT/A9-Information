@@ -6,6 +6,7 @@ const jwt = require('../jwt');
 
 router.post('/login', asyncHandler(async (req, res) => {
     const { loginId, loginPwd } = req.body
+    console.log(loginId, loginPwd)
     const result = await adminServ.login(loginId, loginPwd);
     if (result) {
         jwt.publish(res, undefined, { id: result.id })

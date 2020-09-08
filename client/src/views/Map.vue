@@ -1,35 +1,30 @@
 <template>
   <div class="map">
-    <!-- <div class="head">
-      <my-search @search="search"></my-search>
-    </div> -->
-    <div class="body">
-      <div class="nav">
-        <ul>
-          <li v-for="(place) of placeList" :key="place.id">
-            <div class="place" @click="changePlace(place)">
-              <span>{{place.name}}</span>
-              <i :class="{'iconfont': true, 'icon-down': true}"></i>
-            </div>
+    <div class="nav">
+      <ul>
+        <li v-for="(place) of placeList" :key="place.id">
+          <div class="place" @click="changePlace(place)">
+            <span>{{place.name}}</span>
+            <i :class="{'iconfont': true, 'icon-down': true}"></i>
+          </div>
 
-            <ul v-show="showPanel && place.id === currentPlace.id">
-              <li
-                :class="{active: map.id === currentMap.id}"
-                v-for="(map) of mapList"
-                :key="map.id"
-                @click="changeMap(map)"
-              >{{map.name}}</li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <div class="content">
-        <img :src="getImgUrl" alt />
-        <div class="text">
-          <h2>{{currentPlace.name}}</h2>
-          <div>{{currentMap.name}}</div>
-          <div>{{currentMap.duration}}''</div>
-        </div>
+          <ul v-show="showPanel && place.id === currentPlace.id">
+            <li
+              :class="{active: map.id === currentMap.id}"
+              v-for="(map) of mapList"
+              :key="map.id"
+              @click="changeMap(map)"
+            >{{map.name}}</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="content">
+      <img :src="getImgUrl" alt />
+      <div class="text">
+        <h2>{{currentPlace.name}}</h2>
+        <div>{{currentMap.name}}</div>
+        <div>{{currentMap.duration}}''</div>
       </div>
     </div>
   </div>
@@ -54,8 +49,8 @@ export default {
   },
 
   created() {
-    this.getPlaces()
-    this.getMaps();
+    this.getPlaces();
+    this.getMaps(1);
   },
 
   methods: {
@@ -108,70 +103,61 @@ export default {
 
 <style lang="scss" scoped>
 .map {
-  .head {
-    padding: 5px;
-  }
+  height: 560px;
 
-  .body {
-    display: flex;
-    .nav {
-      height: 500px;
-      overflow: hidden;
-      overflow-y: scroll;
-      width: 180px;
-      > ul {
-        > li {
-          cursor: pointer;
-          .place {
-            display: flex;
-            justify-content: space-between;
-            padding: 0 20px;
+  display: flex;
+  .nav {
+    overflow-y: scroll;
+    width: 180px;
+    > ul {
+      > li {
+        cursor: pointer;
+        .place {
+          display: flex;
+          justify-content: space-between;
+          padding: 0 20px;
+          height: 40px;
+          line-height: 40px;
+          &:hover {
+            background-color: #e5e9f2;
+          }
+        }
+        > ul {
+          li {
+            padding: 0 30px;
             height: 40px;
             line-height: 40px;
             &:hover {
               background-color: #e5e9f2;
             }
-          }
-          > ul {
-            li {
-              padding: 0 30px;
-              height: 40px;
-              line-height: 40px;
-              &:hover {
-                background-color: #e5e9f2;
-              }
-              &.active {
-                background-color: #1e5df1;
-                color: #fff;
-              }
+            &.active {
+              background-color: #1e5df1;
+              color: #fff;
             }
           }
         }
       }
     }
+  }
 
-    .content {
-      height: 500px;
+  .content {
+    flex: 1;
+    color: #222;
+    display: flex;
+    img {
+      height: 100%;
+      width: 600px;
+      background-color: #222;
+    }
+    .text {
+      margin-top: 460px;
+      padding-right: 20px;
       flex: 1;
-      // background-color: #333;
-      color: #222;
-      display: flex;
-      img {
-        // height: 400px;
-        height: 100%;
-        width: 600px;
-        background-color: #333;
-      }
-      .text {
-        margin-top: 400px;
-        padding-right: 20px;
-        flex: 1;
-        text-align: right;
-        line-height: 2rem;
+      text-align: right;
+      line-height: 2rem;
 
-        h2 {
-          font-size: 1.5rem;
-        }
+      h2 {
+        font-size: 1.5rem;
       }
     }
   }

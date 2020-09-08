@@ -102,11 +102,12 @@ export default {
 <style lang="scss" scoped>
 .car {
   padding: 20px;
-  height: 540px;
+  height: 560px;
+  box-sizing: border-box;
 
   .content {
-    overflow: auto;
-    height: 500px;
+    overflow-y: scroll;
+    height: 480px;
     margin-top: 20px;
     > ul {
       display: flex;

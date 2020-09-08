@@ -2,6 +2,9 @@ const express = require('express');
 
 const app = express();
 
+const history = require('connect-history-api-fallback');
+app.use(history())
+
 const path = require('path');
 const StaticRoot = path.resolve(__dirname, '../public')
 app.use(express.static(StaticRoot))

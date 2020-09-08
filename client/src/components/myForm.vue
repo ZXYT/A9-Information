@@ -14,6 +14,7 @@
 <style lang="scss" scoped>
 .form {
   position: fixed;
+  z-index: 100;
   left: 0;
   top: 0;
   bottom: 0;

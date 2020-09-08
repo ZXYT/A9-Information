@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/ZXYT/A9-Information#readme",
   "dependencies": {
+    "connect-history-api-fallback": "^1.6.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "md5": "^2.3.0",
