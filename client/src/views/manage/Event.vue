@@ -28,9 +28,9 @@
 
 <script>
 import api from "@/api";
-import myTable from "../table.vue";
-import myForm from "@/components/myForm.vue";
-import turnPage from "@/components/turnPage.vue";
+import myTable from "@/components/Table.vue";
+import myForm from "@/components/Form";
+import turnPage from "@/components/TurnPage.vue";
 
 export default {
   data() {
@@ -61,10 +61,14 @@ export default {
         console.log("getEvents:", res.rows);
         this.events = res.rows;
         res.rows.map((item) => {
-          item.endTime = item.endTime.replace(
-            /T[\d]{2}/,
-            `T${(+item.endTime.slice(11, 13) + 8).toString().padStart(2, "0")}`
-          ).slice(0, 16);
+          item.endTime = item.endTime
+            .replace(
+              /T[\d]{2}/,
+              `T${(+item.endTime.slice(11, 13) + 8)
+                .toString()
+                .padStart(2, "0")}`
+            )
+            .slice(0, 16);
           return item;
         });
         this.totalPage = Math.ceil(res.count / this.limit);
@@ -82,7 +86,7 @@ export default {
         this.name = item.name;
         this.eventClass = item.eventClass;
         console.log(item.endTime);
-        this.endTime = item.endTime
+        this.endTime = item.endTime;
       }
     },
 

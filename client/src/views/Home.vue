@@ -19,7 +19,7 @@
 // @ is an alias to /src
 import api from "@/api";
 import { ms2Time } from "@/util";
-import myNav from "@/components/nav.vue";
+import myNav from "@/components/Nav.vue";
 
 export default {
   name: "Home",
@@ -62,9 +62,7 @@ export default {
     changeIndex(index) {
       // console.log(index, this.classList[index].name);
       if (index !== 0) {
-        this.eventList = this.events.filter(
-          (item) => item.eventClass == index
-        );
+        this.eventList = this.events.filter((item) => item.eventClass == index);
       } else {
         this.eventList = this.events;
       }

@@ -5,7 +5,7 @@
         <router-link to="/">狂野飙车9游戏资讯</router-link>
         <div>
           <span class="nav">
-            <router-link to="/index">首页</router-link>
+            <router-link to="/home">首页</router-link>
             <router-link to="/map">地图</router-link>
             <router-link to="/car">车辆</router-link>
             <router-link to="/manage">管理</router-link>
@@ -35,8 +35,12 @@ export default {
 
   methods: {
     loginOut() {
+      const flag = window.confirm("是否要退出登录");
+      if (!flag) return;
       this.$store.dispatch("loginUser/loginOut");
-      this.$router.push("/");
+      if (this.$route.path !== "/home") {
+        this.$router.push("/");
+      }
     },
   },
 };

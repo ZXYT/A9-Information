@@ -5,13 +5,12 @@ import store from '@/store'
 
 Vue.use(VueRouter)
 
-const routes = [
-  {
+const routes = [{
     path: '/',
-    redirect: '/index',
+    redirect: '/home',
   },
   {
-    path: '/index',
+    path: '/home',
     name: 'Home',
     component: Home
   },
@@ -21,12 +20,12 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Map.vue')
+    component: () => import( /* webpackChunkName: "map" */ '@/views/Map.vue')
   },
   {
     path: '/car',
     name: 'Car',
-    component: () => import('../views/Car.vue')
+    component: () => import('@/views/Car.vue')
   },
   {
     path: '/manage',
@@ -41,26 +40,27 @@ const routes = [
         next('/login')
       }
     },
-    component: () => import('../views/Manage.vue'),
+    component: () => import( /* webpackChunkName: "manage" */ '@/views/Manage.vue'),
     children: [{
-      path: '/manage/event',
-      name: 'manageEvent',
-      component: () => import('../components/manage/event'),
-    }, {
-      path: '/manage/map',
-      name: 'manageMap',
-      component: () => import('../components/manage/map'),
-    },
-    {
-      path: '/manage/car',
-      name: 'manageCar',
-      component: () => import('../components/manage/car'),
-    },]
+        path: 'event',
+        name: 'ManageEvent',
+        component: () => import( /* webpackChunkName: "manage" */ '@/views/manage/Event'),
+      }, {
+        path: 'map',
+        name: 'ManageMap',
+        component: () => import('@/views/manage/Map'),
+      },
+      {
+        path: 'car',
+        name: 'ManageCar',
+        component: () => import('@/views/manage/Car'),
+      },
+    ]
   },
   {
     path: '/login',
     name: 'Login',
-    component: () => import('../views/Login.vue')
+    component: () => import('@/views/Login.vue')
   },
 ]
 

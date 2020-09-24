@@ -1,4 +1,4 @@
-import axios from '@/plugins/axios'
+import axios from 'axios'
 
 const api = {
     getPlaces() {
@@ -15,7 +15,9 @@ const api = {
         return axios.put(`/api/map/${id}`, params)
     },
     getMaps(params) {
-        return axios.get('/api/map', { params })
+        return axios.get('/api/map', {
+            params
+        })
     },
 
     addEvent(params) {
@@ -28,7 +30,9 @@ const api = {
         return axios.put(`/api/event/${id}`, params)
     },
     getEvents(params) {
-        return axios.get('/api/event', { params })
+        return axios.get('/api/event', {
+            params
+        })
     },
 
     addCar(params) {
@@ -41,7 +45,9 @@ const api = {
         return axios.put(`/api/car/${id}`, params)
     },
     getCars(params) {
-        return axios.get('/api/car', { params })
+        return axios.get('/api/car', {
+            params
+        })
     },
 
     upload(type, formData) {

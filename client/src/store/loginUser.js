@@ -15,7 +15,12 @@ export default {
         }
     },
     actions: {
-        async login({ commit }, { loginId, loginPwd }) {
+        async login({
+            commit
+        }, {
+            loginId,
+            loginPwd
+        }) {
             commit('setIsLoading', true);
             const resp = await loginServ.login(loginId, loginPwd);
             commit('setData', resp.data);
@@ -23,12 +28,16 @@ export default {
             return resp.data
         },
 
-        loginOut({ commit }) {
+        loginOut({
+            commit
+        }) {
             commit('setData', null)
             loginServ.loginOut()
         },
 
-        async whoAmI({ commit }) {
+        async whoAmI({
+            commit
+        }) {
             commit('setIsLoading', true);
             try {
                 const resp = await loginServ.whoAmI();

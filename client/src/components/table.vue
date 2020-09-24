@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import mySearch from "@/components/search.vue";
+import mySearch from "@/components/Search.vue";
 
 export default {
   props: {
@@ -71,7 +71,7 @@ export default {
         this.$emit("del", index);
       }
     },
-    
+
     search(sw) {
       console.log(sw);
     },

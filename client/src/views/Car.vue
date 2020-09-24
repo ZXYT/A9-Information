@@ -49,7 +49,7 @@
 
 <script>
 import api from "@/api";
-import myNav from "@/components/nav.vue";
+import myNav from "@/components/Nav.vue";
 
 export default {
   name: "car",

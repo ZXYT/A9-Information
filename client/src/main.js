@@ -1,14 +1,12 @@
 import Vue from 'vue'
-import './plugins/axios'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import './plugins/axios'
+import "@/assets/css/index.css"
+
 store.dispatch('loginUser/whoAmI')
-
-import "@/assets/css/reset.css"
-import "@/assets/css/font.css";
-import "@/assets/css/base.scss";
-
+console.dir(Vue)
 
 Vue.config.productionTip = false
 

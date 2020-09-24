@@ -33,9 +33,9 @@
 
 <script>
 import api from "@/api";
-import myTable from "../table.vue";
-import myForm from "@/components/myForm";
-import turnPage from "@/components/turnPage.vue";
+import myTable from "@/components/Table.vue";
+import myForm from "@/components/Form";
+import turnPage from "@/components/TurnPage.vue";
 
 export default {
   data() {

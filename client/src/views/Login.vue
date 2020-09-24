@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import myForm from "@/components/myForm.vue";
+import myForm from "@/components/Form.vue";
 
 export default {
   data() {
@@ -33,15 +33,15 @@ export default {
     async submit() {
       // console.log(this.user)
       const { id: loginId, pwd: loginPwd } = this.user;
-      if(!loginId || !loginPwd) {
-        return
+      if (!loginId || !loginPwd) {
+        return;
       }
       const user = await this.$store.dispatch("loginUser/login", {
         loginId,
         loginPwd,
       });
       if (user) {
-        this.$router.push("/");
+        this.$router.go(-1);
       } else {
         alert("err");
       }
