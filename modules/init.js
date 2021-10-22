@@ -1,2 +1,0 @@
-require('./ralation')
-// require('./sync')
